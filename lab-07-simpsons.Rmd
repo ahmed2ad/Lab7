@@ -74,7 +74,7 @@ ggplot(Whickham, aes(x= age, fill = smoker)) +
 
 
 4. 
-I expect that there will be more deaths of smoker than there will be of non-smokers.
+I expect that there will be more deaths of smoker than there will be of non-smokers..
 
 Knit, commit, and push to github.
 

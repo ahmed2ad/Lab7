@@ -22,51 +22,59 @@ library(mosaicData)
 
 1.  
 ```{r whickam}
-
+glimpse(Whickham)
 ```
     
-Your answer:
+Your answer: The data is experimental because specific information about the people was collected.
 
 2.  
 ```{r observations}
-
+nrow(Whickham)
 ```
 
-Your answer;
+Your answer;There are 1,134 rows/observation in this dataset.
 
 3.  
 
 ```{r number_variables}
-
+ncol(Whickham)
 ```
 
-Your answer:  
+Your answer:there are 3 variables/columns in this dataset.  
 
 ```{r var_type}
-
+unique(Whickham$outcome)
+unique(Whickham$smoker)
+unique(Whickham$age)
 ```
 
-Your answer: 
+Your answer: Using the 'unique()' function on the 3 variables, we could see that "outcome" varible only takes Alive or Dead value,which makes it categorical non-ordinal. "smoker" variable only takes Yes or No, which also makes it categorical non-ordinal. Age is numerical continuous data.
+
+
+One of the best ways to visualize categorical data is through the use of bar charts.
+
+
 
 ```{r plot_outcome}
-
+ggplot(Whickham, aes(x= outcome)) +
+  geom_bar()
 ```
 
 
 ```{r plot_smoker}
-
+ggplot(Whickham, aes(x= smoker)) +
+  geom_bar()
 ```
 
 ```{r plot_age}
-
+ggplot(Whickham, aes(x= age, fill = smoker)) +
+  geom_histogram(binwidth =3, color = "black") +
+  facet_wrap(~ outcome, nrow = 2)
 ```
 
 
 4. 
-
-```{r plot_smokeVSincome_1}
-
-```
+I expect that there will be more deaths of smoker than there will be of non-smokers.
 
 Knit, commit, and push to github.
 

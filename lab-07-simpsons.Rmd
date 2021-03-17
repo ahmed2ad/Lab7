@@ -78,12 +78,22 @@ I expect that there will be more deaths of smoker than there will be of non-smok
 
 Knit, commit, and push to github.
 
-5. 
+5. Below is the visualization depicting the relationship between smoking status and health outcome.
+
+```{r plot_smokeVSoutcome_1}
+ggplot(Whickham, aes(x = smoker, fill = outcome)) + 
+  geom_bar()
+```
+
 
 ```{r plot_smokeVSincome_2}
 Whickham %>%
-  count(smoker, outcome)
+  count(smoker, outcome) %>%
+  group_by(smoker) %>%
+  mutate(outcome_perc = n / sum(n)) %>%
+  filter(outcome == "Dead") 
 ```
+31.4% of smokers had died by the follow-up and 23.9% of non-smoker had dide by the follow-up after the same period . Itappears that, contrary to what I expected, smokers survived the 20 years follow-up more than non-smokers.
 
 6.
 
